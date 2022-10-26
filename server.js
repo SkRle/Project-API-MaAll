@@ -21,7 +21,7 @@ app.use(
     limit: "50mb",
   })
 );
-
+// KUY
 app.use("/users", userRouter);
 app.use("/public", publicRouter);
 app.use("/thread", authenticateJWT, postRouter);
