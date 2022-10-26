@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const TOKEN_SECRET = "123qaz456wsx";
+const TOKEN_SECRET = "fmsbis";
 
 const authenticateJWT = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -10,7 +10,6 @@ const authenticateJWT = (req, res, next) => {
       if (err) {
         return res.status(403).send("Token Time out!!");
       }
-      req.user = user;
       next();
     });
   } else {

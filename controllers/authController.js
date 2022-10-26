@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const db = require("../database/conn");
 const jwt = require("jsonwebtoken");
-const TOKEN_SECRET = "123qaz456wsx";
+const TOKEN_SECRET = "fmsbis";
 
 exports.login = async (req, res) => {
   const { email, pass } = req.body;
@@ -12,6 +12,7 @@ exports.login = async (req, res) => {
         const isCorrect = await bcrypt.compare(pass, data[count].user_pass);
         if (isCorrect) {
           token = jwt.sign(
+            // count = 0
             { userID: data[count].user_id, email: data[count].user_email },
             TOKEN_SECRET,
             { expiresIn: "1h" }
