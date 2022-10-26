@@ -27,7 +27,7 @@ exports.get = async (req, res) => {
   }
 };
 
-exports.byIdCategory = async (req, res) => {
+exports.getByIdCategory = async (req, res) => {
   try {
     const { id } = req.params;
     const query = `SELECT post.post_id, post.post_title, post.post_content , users.user_fname , users.user_lname,post_category.category_id, post_category.category_name FROM post LEFT JOIN users on (post.user_id = users.user_id)
